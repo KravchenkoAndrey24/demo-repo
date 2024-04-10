@@ -4,7 +4,7 @@
 
 This is a main application. It provides all core UI functionality.
 
-![Preview App](/src/assets/preview.png 'Preview')
+<img alt='Preview App' src="/src/assets/preview.png" width="400" height="200">
 
 ## Requirements
 
