@@ -1,0 +1,20 @@
+{
+  "css.customData": [".vscode/css_custom_data.json"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": { "*.scss": "postcss" },
+  "typescript.preferences.jsxAttributeCompletionStyle": "auto",
+  "typescript.preferences.quoteStyle": "double",
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", ".*ClassName", ".*Styles"],
+  // extended regex solution from https://github.com/tailwindlabs/tailwindcss/issues/7553#issuecomment-917271069
+  // The assumption is the block should end with ; (and there should be no ; within the classes declarations)
+  "tailwindCSS.experimental.classRegex": [["/\\*tw\\*/ ([^;]*);", "'([^']*)'"], ["clsxm\\('([^']*)'\\)"]],
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}

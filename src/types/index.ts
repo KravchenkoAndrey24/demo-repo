@@ -1,16 +1,30 @@
-import { InferType, object, string } from "yup";
+export type CityFormType = {
+  q?: string;
+};
 
-export const FileFormSchema = object({
-  invoicingMonth: string()
-    .required("Required field")
-    .matches(/^\d{4}-(0[1-9]|1[0-2])$/, "Must be YYYY-MM format"),
-});
-export type FileFormSchemaType = InferType<typeof FileFormSchema>;
-
-export type UploadOutDto = {
-  invoicingMonth: string;
-  currencyRates: {
-    [key: string]: number;
+export type WeatherApiOutDto = {
+  weather?: Array<{
+    description?: string;
+    icon?: string;
+    id: number;
+    main?: string;
+  }>;
+  main?: {
+    temp?: number;
+    pressure?: number;
+    humidity?: number;
   };
-  invoicesData: { [key: string]: any }[];
+  wind?: {
+    speed?: number;
+    deg?: number;
+  };
+};
+
+export type WeatherOutDto = {
+  icon?: string;
+  temp?: number;
+  windSpeed?: number;
+  windDirection?: number;
+  pressure?: number;
+  humidity?: number;
 };
