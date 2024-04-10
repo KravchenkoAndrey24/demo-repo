@@ -4,7 +4,7 @@
 
 This is a main application. It provides all core UI functionality.
 
-<img alt='Preview App' src="/src/assets/preview.png" width="400" height="200">
+<img alt='Preview App' src="/src/assets/preview.png" width="400" height="450">
 
 ## Requirements
 
