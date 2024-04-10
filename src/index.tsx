@@ -4,7 +4,7 @@ import { App } from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 
@@ -21,13 +21,10 @@ const queryClient = new QueryClient({
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <Router basename="/demo-repo">
+    <Router>
       <QueryParamProvider adapter={ReactRouter6Adapter}>
         <QueryClientProvider client={queryClient}>
-          <Routes>
-            <Route path="/weater-widget" element={<App />} />
-            <Route path="*" element={<Navigate to={'weater-widget'} />} />
-          </Routes>
+          <App />
         </QueryClientProvider>
       </QueryParamProvider>
     </Router>
