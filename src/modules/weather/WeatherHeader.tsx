@@ -15,7 +15,7 @@ export const WeatherHeader: React.FC<{ isPending?: boolean }> = ({ isPending }) 
 
   const { q } = watch();
   const sumbitForm = (formData: CityFormType) => {
-    setCityName(formData.q);
+    setCityName(formData?.q?.trim() || '');
   };
 
   return (
