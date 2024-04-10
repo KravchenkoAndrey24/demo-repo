@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/demo-repo/static/css/main.ac456dd5.css",
-    "main.js": "/demo-repo/static/js/main.61a1dc78.js",
-    "static/js/453.5715a1ba.chunk.js": "/demo-repo/static/js/453.5715a1ba.chunk.js",
-    "index.html": "/demo-repo/index.html",
-    "main.ac456dd5.css.map": "/demo-repo/static/css/main.ac456dd5.css.map",
-    "main.61a1dc78.js.map": "/demo-repo/static/js/main.61a1dc78.js.map",
-    "453.5715a1ba.chunk.js.map": "/demo-repo/static/js/453.5715a1ba.chunk.js.map"
+    "main.css": "/weather-widget/static/css/main.ac456dd5.css",
+    "main.js": "/weather-widget/static/js/main.4ae76fe0.js",
+    "static/js/453.5715a1ba.chunk.js": "/weather-widget/static/js/453.5715a1ba.chunk.js",
+    "index.html": "/weather-widget/index.html",
+    "main.ac456dd5.css.map": "/weather-widget/static/css/main.ac456dd5.css.map",
+    "main.4ae76fe0.js.map": "/weather-widget/static/js/main.4ae76fe0.js.map",
+    "453.5715a1ba.chunk.js.map": "/weather-widget/static/js/453.5715a1ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ac456dd5.css",
-    "static/js/main.61a1dc78.js"
+    "static/js/main.4ae76fe0.js"
   ]
 }
