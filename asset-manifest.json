@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/invoice-xlxs/static/css/main.285dd96d.css",
-    "main.js": "/invoice-xlxs/static/js/main.43112d11.js",
-    "static/js/453.e5d21385.chunk.js": "/invoice-xlxs/static/js/453.e5d21385.chunk.js",
-    "index.html": "/invoice-xlxs/index.html",
-    "static/media/load-file.svg": "/invoice-xlxs/static/media/load-file.5dbac7fd637d8992d99ab81603e52dee.svg",
-    "main.285dd96d.css.map": "/invoice-xlxs/static/css/main.285dd96d.css.map",
-    "main.43112d11.js.map": "/invoice-xlxs/static/js/main.43112d11.js.map",
-    "453.e5d21385.chunk.js.map": "/invoice-xlxs/static/js/453.e5d21385.chunk.js.map"
+    "main.css": "/demo-repo/static/css/main.ac456dd5.css",
+    "main.js": "/demo-repo/static/js/main.e1c2310f.js",
+    "static/js/453.5715a1ba.chunk.js": "/demo-repo/static/js/453.5715a1ba.chunk.js",
+    "index.html": "/demo-repo/index.html",
+    "main.ac456dd5.css.map": "/demo-repo/static/css/main.ac456dd5.css.map",
+    "main.e1c2310f.js.map": "/demo-repo/static/js/main.e1c2310f.js.map",
+    "453.5715a1ba.chunk.js.map": "/demo-repo/static/js/453.5715a1ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.285dd96d.css",
-    "static/js/main.43112d11.js"
+    "static/css/main.ac456dd5.css",
+    "static/js/main.e1c2310f.js"
   ]
 }
