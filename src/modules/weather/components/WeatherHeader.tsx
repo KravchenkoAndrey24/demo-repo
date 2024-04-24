@@ -1,9 +1,9 @@
 import { Button, TextField } from '@mui/material';
-import { useGetCityNameQueryParam } from '../../hooks/query.params.hooks';
+import { useGetCityNameQueryParam } from '../../../hooks/query.params.hooks';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
-import { CityFormType } from '../../types';
+import { CityFormType } from '../../../types';
 
 export const WeatherHeader: React.FC<{ isPending?: boolean }> = ({ isPending }) => {
   const [cityName, setCityName] = useGetCityNameQueryParam();

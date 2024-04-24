@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
+
+const App = lazy(() => import('./App'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,11 @@ root.render(
     <Router>
       <QueryParamProvider adapter={ReactRouter6Adapter}>
         <QueryClientProvider client={queryClient}>
-          <App />
+          <Suspense
+            fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Loading...</div>}
+          >
+            <App />
+          </Suspense>
         </QueryClientProvider>
       </QueryParamProvider>
     </Router>

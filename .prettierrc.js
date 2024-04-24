@@ -12,16 +12,16 @@ module.exports = {
     {
       files: '*.css',
       options: {
-        parser: 'css',
-      },
+        parser: 'css'
+      }
     },
     {
       files: '*.scss',
       options: {
-        parser: 'scss',
-      },
-    },
+        parser: 'scss'
+      }
+    }
   ],
   importOrderSeparation: true,
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ['prettier-plugin-tailwindcss']
 };

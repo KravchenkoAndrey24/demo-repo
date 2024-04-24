@@ -1,25 +1,33 @@
-import { useGetCityNameQueryParam } from './hooks/query.params.hooks';
-import { WeatherHeader } from './modules/weather/WeatherHeader';
-import { WeatherWidget } from './modules/weather/WeatherWidget';
-import { CircularProgress } from '@mui/material';
-import { useGetCityWeatherData } from './hooks/react-query.hooks';
+import { PublicClientApplication } from '@azure/msal-browser';
+import { MsalProvider } from '@azure/msal-react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Suspense, lazy } from 'react';
 
-export const App = () => {
-  const [q] = useGetCityNameQueryParam();
+const RootModule = lazy(() => import('./modules/RootModule'));
 
-  const { data: weather, isPending, error } = useGetCityWeatherData({ q });
+const msalConfig = {
+  auth: {
+    clientId: process.env.REACT_APP_AZURE_CLIENT_ID as string,
+    redirectUri: '/'
+  },
+  system: {
+    allowNativeBroker: false
+  }
+};
+const msalInstance = new PublicClientApplication(msalConfig);
 
-  const isShowErrorMessage = error && !weather;
-  const isShowLoader = isPending && !weather;
-
+const App: React.FC = () => {
   return (
-    <div className="mx-4 flex flex-col items-center justify-center gap-6 pt-[100px]">
-      <div className="w-full overflow-hidden rounded-xl bg-gray-200 sm:w-auto">
-        <WeatherHeader isPending={isPending} />
-        {q && weather && <WeatherWidget weather={weather} />}
-      </div>
-      {isShowLoader && <CircularProgress />}
-      {isShowErrorMessage && <div className="font-xxl font-semibold text-red-500">Enter a valid city name</div>}
-    </div>
+    <Suspense
+      fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Loading...</div>}
+    >
+      <MsalProvider instance={msalInstance}>
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID as string}>
+          <RootModule />
+        </GoogleOAuthProvider>
+      </MsalProvider>
+    </Suspense>
   );
 };
+
+export default App;

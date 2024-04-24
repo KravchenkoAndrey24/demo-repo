@@ -1,6 +1,6 @@
-import { RenderInfoItem } from '../../components/RenderInfoItem';
-import { WeatherOutDto } from '../../types';
-import { getFriendlyNewDate, getWindDirection } from '../../utils/utils';
+import { RenderInfoItem } from '../../../components/RenderInfoItem';
+import { WeatherOutDto } from '../../../types';
+import { getFriendlyNewDate, getWindDirection } from '../../../utils/utils';
 
 export const WeatherWidget: React.FC<{ weather?: WeatherOutDto | null }> = ({ weather }) => {
   return (
@@ -10,7 +10,7 @@ export const WeatherWidget: React.FC<{ weather?: WeatherOutDto | null }> = ({ we
           <img
             alt="Weather icon"
             className="h-full w-full object-contain"
-            src={`${process.env.REACT_APP_API_BASE_URL}/img/w/${weather?.icon}.png`}
+            src={`${process.env.REACT_APP_OPEN_WEATHER_API_BASE_URL}/img/w/${weather?.icon}.png`}
           />
         </div>
       )}

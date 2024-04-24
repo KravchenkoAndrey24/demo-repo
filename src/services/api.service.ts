@@ -18,7 +18,7 @@ export type ResponseWithHeadersDto<T = any> = {
 
 export class ApiService {
   private baseAxiosConfig: AxiosRequestConfig = {
-    baseURL: process.env.REACT_APP_API_BASE_URL
+    baseURL: ''
   };
 
   public axiosInstance: AxiosInstance;
@@ -27,7 +27,6 @@ export class ApiService {
 
   constructor(axiosConfig?: AxiosRequestConfig) {
     this.axiosInstance = axios.create(axiosConfig || this.baseAxiosConfig);
-    this.axiosInstance.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
     if (axiosConfig) {
       this.baseAxiosConfig = { ...this.baseAxiosConfig, ...axiosConfig };
