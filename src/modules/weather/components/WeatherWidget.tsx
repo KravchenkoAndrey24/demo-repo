@@ -1,6 +1,6 @@
-import { RenderInfoItem } from '../../../components/RenderInfoItem';
 import { WeatherOutDto } from '../../../types';
 import { getFriendlyNewDate, getWindDirection } from '../../../utils/utils';
+import { RenderInfoItem } from './RenderInfoItem';
 
 export const WeatherWidget: React.FC<{ weather?: WeatherOutDto | null }> = ({ weather }) => {
   return (

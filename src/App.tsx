@@ -2,6 +2,8 @@ import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider } from '@azure/msal-react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Suspense, lazy } from 'react';
+import './index.css';
+import { SuspenseLoader } from './components';
 
 const RootModule = lazy(() => import('./modules/RootModule'));
 
@@ -18,9 +20,7 @@ const msalInstance = new PublicClientApplication(msalConfig);
 
 const App: React.FC = () => {
   return (
-    <Suspense
-      fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Loading...</div>}
-    >
+    <Suspense fallback={<SuspenseLoader />}>
       <MsalProvider instance={msalInstance}>
         <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID as string}>
           <RootModule />

@@ -129,6 +129,15 @@ module.exports = {
       },
       lineHeight: {
         zero: '0'
+      },
+      keyframes: {
+        spin: {
+          '0%, 100%': { transform: 'rotate(360deg)' },
+          '50%': { transform: 'rotate(-360deg)' }
+        }
+      },
+      animation: {
+        'spin-slow': 'spin 9s linear infinite'
       }
     }
   }
