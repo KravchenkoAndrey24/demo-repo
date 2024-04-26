@@ -1,4 +1,5 @@
 import { WeatherOutDto } from '../../../types';
+import { TYPED_ENV } from '../../../utils/env';
 import { getFriendlyNewDate, getWindDirection } from '../../../utils/utils';
 import { RenderInfoItem } from './RenderInfoItem';
 
@@ -10,7 +11,7 @@ export const WeatherWidget: React.FC<{ weather?: WeatherOutDto | null }> = ({ we
           <img
             alt="Weather icon"
             className="h-full w-full object-contain"
-            src={`${process.env.REACT_APP_OPEN_WEATHER_API_BASE_URL}/img/w/${weather?.icon}.png`}
+            src={`${TYPED_ENV.VITE_OPEN_WEATHER_API_BASE_URL}/img/w/${weather?.icon}.png`}
           />
         </div>
       )}

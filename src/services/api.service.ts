@@ -5,6 +5,7 @@ import axios, {
   AxiosResponseHeaders,
   RawAxiosResponseHeaders
 } from 'axios';
+import { TYPED_ENV } from '../utils/env';
 
 type InfiniteDataResponse<T = any> = {
   result: T;
@@ -38,7 +39,7 @@ export class ApiService {
         async (req) => {
           this.countOfActiveRequests++;
 
-          const appid = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+          const appid = TYPED_ENV.VITE_OPEN_WEATHER_API_KEY;
           if (appid) {
             req.params = {
               ...req.params,

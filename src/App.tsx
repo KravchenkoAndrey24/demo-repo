@@ -4,12 +4,13 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Suspense, lazy } from 'react';
 import './index.css';
 import { SuspenseLoader } from './components';
+import { TYPED_ENV } from './utils/env';
 
 const RootModule = lazy(() => import('./modules/RootModule'));
 
 const msalConfig = {
   auth: {
-    clientId: process.env.REACT_APP_AZURE_CLIENT_ID as string,
+    clientId: TYPED_ENV.VITE_AZURE_CLIENT_ID,
     redirectUri: '/'
   },
   system: {
@@ -22,7 +23,7 @@ const App: React.FC = () => {
   return (
     <Suspense fallback={<SuspenseLoader />}>
       <MsalProvider instance={msalInstance}>
-        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID as string}>
+        <GoogleOAuthProvider clientId={TYPED_ENV.VITE_GOOGLE_CLIENT_ID as string}>
           <RootModule />
         </GoogleOAuthProvider>
       </MsalProvider>
