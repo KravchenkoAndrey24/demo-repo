@@ -23,7 +23,7 @@ const App: React.FC = () => {
   return (
     <Suspense fallback={<SuspenseLoader />}>
       <MsalProvider instance={msalInstance}>
-        <GoogleOAuthProvider clientId={TYPED_ENV.VITE_GOOGLE_CLIENT_ID as string}>
+        <GoogleOAuthProvider clientId={TYPED_ENV.VITE_GOOGLE_CLIENT_ID}>
           <RootModule />
         </GoogleOAuthProvider>
       </MsalProvider>
