@@ -1,4 +1,4 @@
-import { WeatherOutDto } from '../../../types';
+import { WeatherOutDto } from '../../../domain/weather/weather.api.type';
 import { TYPED_ENV } from '../../../utils/env';
 import { getFriendlyNewDate, getWindDirection } from '../../../utils/utils';
 import { RenderInfoItem } from './RenderInfoItem';

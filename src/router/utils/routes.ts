@@ -5,5 +5,8 @@ export const APP_ROUTES = {
   },
   orders: {
     index: '/orders'
+  },
+  weather: {
+    index: '/weather'
   }
 } as const;

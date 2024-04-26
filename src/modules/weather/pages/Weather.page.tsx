@@ -1,13 +1,12 @@
-import { CircularProgress } from '@mui/material';
 import { WeatherHeader } from '../components/WeatherHeader';
 import { WeatherWidget } from '../components/WeatherWidget';
-import { useGetCityWeatherData } from '../../../hooks/react-query.hooks';
-import { useGetCityNameQueryParam } from '../../../hooks/query.params.hooks';
+import { useGetCityNameQueryParam, useGetCityWeatherData } from '../../../domain/weather/weather.api.hook';
+import { Loader } from '../../../components';
 
 export const WeatherPage: React.FC = () => {
   const [q] = useGetCityNameQueryParam();
 
-  const { data: weather, isPending, error } = useGetCityWeatherData({ q });
+  const { data: weather, isPending, error } = useGetCityWeatherData(q);
 
   const isShowErrorMessage = error && !weather;
   const isShowLoader = isPending && !weather;
@@ -18,7 +17,7 @@ export const WeatherPage: React.FC = () => {
         <WeatherHeader isPending={isPending} />
         {q && weather && <WeatherWidget weather={weather} />}
       </div>
-      {isShowLoader && <CircularProgress />}
+      {isShowLoader && <Loader />}
       {isShowErrorMessage && <div className="font-xxl font-semibold text-red-500">Enter a valid city name</div>}
     </div>
   );

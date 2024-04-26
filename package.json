@@ -30,7 +30,7 @@
     "yup": "^1.0.0-beta.2"
   },
   "scripts": {
-    "start": "npm run build-theme && vite",
+    "start": "npm run build-theme && vite --host",
     "build": "vite build",
     "build:prod": "vite build --mode production",
     "preview": "vite preview",

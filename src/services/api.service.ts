@@ -33,12 +33,12 @@ export class ApiService {
       this.baseAxiosConfig = { ...this.baseAxiosConfig, ...axiosConfig };
     }
 
-    if (!axiosConfig) {
-      // EVERY REQUEST
-      this.axiosInstance.interceptors.request.use(
-        async (req) => {
-          this.countOfActiveRequests++;
+    // EVERY REQUEST
+    this.axiosInstance.interceptors.request.use(
+      async (req) => {
+        this.countOfActiveRequests++;
 
+        if (this.baseAxiosConfig.baseURL === TYPED_ENV.VITE_OPEN_WEATHER_API_BASE_URL) {
           const appid = TYPED_ENV.VITE_OPEN_WEATHER_API_KEY;
           if (appid) {
             req.params = {
@@ -48,12 +48,14 @@ export class ApiService {
           }
 
           return req;
-        },
-        (err) => {
-          Promise.reject(err);
         }
-      );
-    }
+
+        return req;
+      },
+      (err) => {
+        Promise.reject(err);
+      }
+    );
   }
 
   async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {

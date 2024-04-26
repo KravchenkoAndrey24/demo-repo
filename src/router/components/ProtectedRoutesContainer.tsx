@@ -7,7 +7,7 @@ import { NavLink } from './NavLink';
 import { ConfirmDialog } from '../../components';
 import { Button } from '@mui/material';
 import { useQueryClient } from '@tanstack/react-query';
-import { LOCAL_STORAGE_KEYS, removeLocalStorageValue } from '../../utils/localStorage.utils';
+import { LOCAL_STORAGE_KEYS, removeLocalStorageValue } from '../../utils/local-storage.utils';
 
 export const ProtectedRoutesContainer: React.FC = () => {
   const { data: currentUser } = useGetCurrentUser();
@@ -30,6 +30,7 @@ export const ProtectedRoutesContainer: React.FC = () => {
             Main
           </NavLink>
           <NavLink to={APP_ROUTES.orders.index}>Orders</NavLink>
+          <NavLink to={APP_ROUTES.weather.index}>Weather</NavLink>
         </div>
         <ConfirmDialog
           onConfirm={async () => {

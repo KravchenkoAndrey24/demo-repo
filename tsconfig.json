@@ -27,6 +27,6 @@
     "strictNullChecks": true,
     "downlevelIteration": true
   },
-  "include": ["src", "vite-env.d.ts"],
+  "include": ["src", "vite-env.d.ts", "tsconfig.json"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

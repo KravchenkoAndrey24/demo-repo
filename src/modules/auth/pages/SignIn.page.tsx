@@ -1,13 +1,14 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { SignInSchema } from '../../../domain/auth/auth.api.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, TextField } from '@mui/material';
+import { Button } from '@mui/material';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { LOCAL_STORAGE_KEYS, setLocalStorageValue } from '../../../utils/localStorage.utils';
+import { LOCAL_STORAGE_KEYS, setLocalStorageValue } from '../../../utils/local-storage.utils';
 import { generateRandomId } from '../../../utils/utils';
 import { useGoogleLogin } from '@react-oauth/google';
 import { fetchUserGoogleInfo } from '../../../domain/auth/auth.api';
 import { useMsal } from '@azure/msal-react';
+import { Input } from '../../../components';
 
 export const SignInPage: React.FC = () => {
   const queryClient = useQueryClient();
@@ -56,18 +57,12 @@ export const SignInPage: React.FC = () => {
   return (
     <div className="flex justify-center py-24 text-xxl">
       <form onSubmit={handleSubmit(onSubmit)} className="mx-8 flex flex-1 flex-col gap-4 sm:max-w-[400px]">
-        <TextField
-          {...register('login')}
-          label="Login"
-          helperText={formState?.errors?.login?.message || ''}
-          error={!!formState?.errors?.login}
-        />
-        <TextField
+        <Input {...register('login')} label="Login" errorMessage={formState?.errors?.login?.message || ''} />
+        <Input
           {...register('password')}
           type="password"
           label="Password"
-          helperText={formState?.errors?.password?.message || ''}
-          error={!!formState?.errors?.password}
+          errorMessage={formState?.errors?.password?.message || ''}
         />
         <Button size="large" type="submit" variant="contained">
           Sign In
