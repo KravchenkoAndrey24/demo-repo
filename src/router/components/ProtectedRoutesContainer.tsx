@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { APP_ROUTES } from '../utils/routes';
 import { useGetCurrentUser } from '../../domain/auth/auth.api.hook';
-import { clsxm } from '../../lib/clsxm';
-import { NavLink } from './NavLink';
-import { ConfirmDialog } from '../../components';
-import { Button } from '@mui/material';
-import { useQueryClient } from '@tanstack/react-query';
-import { LOCAL_STORAGE_KEYS, removeLocalStorageValue } from '../../utils/local-storage.utils';
+import { Sidebar } from '../../modules/root/components/Sidebar';
+import { IconButton } from '@mui/material';
+import { Menu } from '@mui/icons-material';
 
 export const ProtectedRoutesContainer: React.FC = () => {
   const { data: currentUser } = useGetCurrentUser();
   const location = useLocation();
-  const queryClient = useQueryClient();
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   if (!currentUser) {
     // Redirect them to the /sign-in page, but save the current location they were
@@ -24,28 +21,16 @@ export const ProtectedRoutesContainer: React.FC = () => {
 
   return (
     <>
-      <header className="flex justify-between gap-6 px-4 py-2">
-        <div className="flex items-center gap-4">
-          <NavLink to={APP_ROUTES.index} className={({ isActive }) => clsxm(isActive && 'font-semibold')}>
-            Main
-          </NavLink>
-          <NavLink to={APP_ROUTES.orders.index}>Orders</NavLink>
-          <NavLink to={APP_ROUTES.weather.index}>Weather</NavLink>
-        </div>
-        <ConfirmDialog
-          onConfirm={async () => {
-            removeLocalStorageValue(LOCAL_STORAGE_KEYS.CURRENT_USER);
-            await queryClient.invalidateQueries();
-          }}
-          title="Are you sure you want to log out?"
-          trigger={
-            <Button color="info" size="small" variant="contained">
-              Log Out
-            </Button>
-          }
-        />
+      <header className="sticky top-0 z-50 flex min-h-14 items-center gap-6 bg-gray-300 px-4 py-2">
+        <IconButton onClick={() => setOpenSidebar(true)} className="text-black lg:hidden">
+          <Menu />
+        </IconButton>
+        <div className="text-xl font-bold">Demo repository</div>
       </header>
-      <Outlet />
+      <Sidebar setOpenSidebar={setOpenSidebar} openSidebar={openSidebar} />
+      <div className="overflow-auto lg:ml-[280px]">
+        <Outlet />
+      </div>
     </>
   );
 };

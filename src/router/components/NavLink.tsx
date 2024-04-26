@@ -10,7 +10,7 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps & { acti
         {...props}
         className={({ isActive }) =>
           clsxm(
-            'rounded p-2 px-4 transition-all hover:bg-gray-100',
+            'rounded border border-gray-300 p-2 px-4 transition-all hover:bg-gray-100',
             isActive ? clsxm(activeClassName, 'bg-gray-200 font-semibold hover:bg-gray-200') : ''
           )
         }

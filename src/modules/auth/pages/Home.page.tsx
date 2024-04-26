@@ -1,3 +1,9 @@
+import { PageTitle } from '../../../components';
+
 export const HomePage: React.FC = () => {
-  return <div className="flex justify-center p-4 pt-8 text-xxl font-bold">This is the home page.</div>;
+  return (
+    <div className="m-4 mx-6 flex">
+      <PageTitle title="This is the main page" />
+    </div>
+  );
 };
