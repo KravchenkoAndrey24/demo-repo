@@ -39,8 +39,8 @@ export const Sidebar: React.FC<{
             >
               Main
             </NavLink>
-            <NavLink onClick={handleLocalSidebar(false)} to={APP_ROUTES.orders.index}>
-              Orders
+            <NavLink onClick={handleLocalSidebar(false)} to={APP_ROUTES.quiz.index}>
+              Quiz
             </NavLink>
             <NavLink onClick={handleLocalSidebar(false)} to={APP_ROUTES.weather.index}>
               Weather

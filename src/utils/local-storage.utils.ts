@@ -1,5 +1,6 @@
 export enum LOCAL_STORAGE_KEYS {
-  CURRENT_USER = 'CURRENT_USER'
+  CURRENT_USER = 'CURRENT_USER',
+  QUIZ_QUESTIONS = 'QUIZ_QUESTIONS'
 }
 
 export const getLocalStorageValue = (key: LOCAL_STORAGE_KEYS) => {

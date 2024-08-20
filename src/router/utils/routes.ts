@@ -3,8 +3,8 @@ export const APP_ROUTES = {
   auth: {
     sign_in: '/sign-in'
   },
-  orders: {
-    index: '/orders'
+  quiz: {
+    index: '/quiz'
   },
   weather: {
     index: '/weather'
